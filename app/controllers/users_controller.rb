@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = #XXX
+    @user = User.find(params[:id])
   end
 
   def update
-    @user = ユーザーの取得
-    @user.ユーザーのアップデート
-    redirect_to ユーザーの詳細ページへのパス
+    user = User.find(params[:id])
+    user.update(user_params)
+    redirect_to user_path(user.id)
   end
 
   private
